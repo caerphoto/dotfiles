@@ -1,0 +1,121 @@
+font:
+  size: 13
+  normal:
+    family: Iosevka NF
+    style: Light
+  italic:
+    style: Light Italic
+  bold:
+    style: Bold
+
+shell:
+  program: /opt/homebrew/bin/fish
+
+window:
+    option_as_alt: Both
+
+# tmux integration bindings
+# \x02 is Ctrl-b
+key_bindings:
+  - { key: T,        mods: Command,       chars: "\x02\x63" } # c (create window)
+  - { key: R,        mods: Command,       chars: "\x02\x2c" } # , (rename window)
+  - { key: W,        mods: Command,       chars: "\x02\x26" } # & (close window)
+  - { key: LBracket, mods: Command,       chars: "\x02\x70" } # p (previous window)
+  - { key: RBracket, mods: Command,       chars: "\x02\x6e" } # n (next window)
+
+  - { key: D,        mods: Command,       chars: "\x02\x7c" } # | (split vertical)
+  - { key: D,        mods: Command|Shift, chars: "\x02\x2d" } # - (split horizontal)
+
+  - { key: Up,       mods: Command,       chars: "\x02\x1b\x5b\x41" } # up
+  - { key: Down,     mods: Command,       chars: "\x02\x1b\x5b\x42" } # down
+  - { key: Right,    mods: Command,       chars: "\x02\x1b\x5b\x43" } # right
+  - { key: Left,     mods: Command,       chars: "\x02\x1b\x5b\x44" } # left
+  - { key: Key3,     mods: Alt,           chars: "#" }
+
+schemes:
+  embark: &embark
+    primary:
+      background: '0x1e1c31'
+      foreground: '0xcbe3e7'
+    cursor:
+      text: '0x1e1c31'
+      cursor: '0xa1efd3'
+    normal:
+      black: '0x1e1c31'
+      red: '0xf48fb1'
+      green: '0xa1efd3'
+      yellow: '0xffe6b3'
+      blue: '0x91ddff'
+      magenta: '0xd4bfff'
+      cyan: '0x87dfeb'
+      white: '0xcbe3e7'
+    bright:
+      black: '0x585273'
+      red: '0xf02e6e'
+      green: '0x62d196'
+      yellow: '0xf2b482'
+      blue: '0x65b2ff'
+      magenta: '0xa37acc'
+      cyan: '0x63f2f1'
+      white: '0x8a889d'
+
+  # Tokyo Night theme, based on both:
+  #   https://github.com/ghifarit53/tokyonight-vim
+  #   https://github.com/enkia/tokyo-night-vscode-theme
+  tokyo-night: &tokyo-night
+    # Default colors
+    primary:
+      background: '0x1a1b26'
+      foreground: '0xa9b1d6'
+
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x787c99'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
+  tokyo-night-storm: &tokyo-night-storm
+    # Default colors
+    primary:
+      background: '0x24283b'
+      foreground: '0xa9b1d6'
+
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x9699a8'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
+# colors: *embark

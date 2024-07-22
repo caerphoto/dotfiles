@@ -1,4 +1,3 @@
-source /Users/farrela/.docker/init-fish.sh || true # Added by Docker Desktop
 fish_config theme choose "Rosé Pine Moon"
 abbr --add gs git status
 abbr --add gd "git diff --word-diff=color"
@@ -117,13 +116,12 @@ set fish_cursor_external line
 # visual mode, but due to fish_cursor_default, is redundant here
 set fish_cursor_visual block
 
-set --universal nvm_default_version v22.4.0
+set --universal nvm_default_version v22.5.0
 
 fish_add_path $HOME/.cargo/bin $HOME/bin
 
 eval "$(rbenv init -)"
 export PYENV_ROOT="$HOME/.pyenv"
 export EDITOR=hx
-export TLDR_AUTO_UPDATE_DISABLED=goodlordlessitsveryannoying
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
