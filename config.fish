@@ -89,7 +89,7 @@ set -g __fish_git_prompt_showdirtystate 1
 set -g __fish_git_prompt_showuntrackedfiles 1
 set -g __fish_git_prompt_showstashstate 1
 set -g __fish_git_prompt_showcolorhints 1
-set -g __fish_git_prompt_use_informative_chars 1
+set -g __fish_git_prompt_use_informative_chars 0
 
 set -g __fish_git_prompt_char_stateseparator " "
 set -g __fish_git_prompt_char_upstream_prefix " "
@@ -97,6 +97,7 @@ set -g __fish_git_prompt_char_upstream_prefix " "
 set -g __fish_git_prompt_char_stashstate "☰"
 set -g __fish_git_prompt_char_dirtystate "*"
 set -g __fish_git_prompt_char_invalidstate "#"
+set -g __fish_git_prompt_char_untrackedfiles "?"
 set -g __fish_git_prompt_char_stagedstate "+"
 set -g __fish_git_prompt_color_invalidstate yellow
 set -g fish_key_bindings fish_vi_key_bindings
@@ -120,8 +121,8 @@ set --universal nvm_default_version v22.5.0
 
 fish_add_path $HOME/.cargo/bin $HOME/bin
 
-eval "$(rbenv init -)"
-export PYENV_ROOT="$HOME/.pyenv"
-export EDITOR=hx
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+. (rbenv init -|psub)
+export EDITOR=nvim
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
