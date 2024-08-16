@@ -37,7 +37,7 @@ function ssh
 end
 
 function wget
-    curl --remote-name --fail --location $argv
+    curl --remote-name --remote-header-name --fail --location --no-clobber $argv
 end
 
 function bssh
@@ -117,7 +117,7 @@ set fish_cursor_external line
 # visual mode, but due to fish_cursor_default, is redundant here
 set fish_cursor_visual block
 
-set --universal nvm_default_version v22.5.0
+set --universal nvm_default_version v22.6.0
 
 fish_add_path $HOME/.cargo/bin $HOME/bin
 
