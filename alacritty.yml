@@ -1,10 +1,10 @@
 font:
   size: 12
   normal:
-    family: Input Mono Condensed
-    style: Light
+    family: BlexMono Nerd Font Mono
+    style: Book
   italic:
-    style: Light Italic
+    style: Italic
   bold:
     style: Bold
 

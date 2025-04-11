@@ -25,10 +25,11 @@ end
 
 # Git branch list
 function gbl
-    set branches $(git for-each-ref --format='%(refname:short)' refs/heads/)
-    for branch in $branches
-        echo -e $(git show --format="%ci %cr" $branch | head -n 1) \\t$branch
-    end | sort -r
+    git branch -r --sort=-committerdate  --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))' --color=always
+    # set branches $(git for-each-ref --format='%(refname:short)' refs/heads/)
+    # for branch in $branches
+    #     echo -e $(git show --format="%ci %cr" $branch | head -n 1) \\t$branch
+    # end | sort -r
 end
 
 function ssh
@@ -43,14 +44,6 @@ end
 function bssh
     set ssh_host ''
     switch $argv
-        case mmdev
-            set ssh_host 'ukbldapdbw03.uk.experian.local'
-        case mmuat
-            set ssh_host 'ukbluapdbw20.uk.experian.local'
-        case mmstaging
-            set ssh_host 'ukbluapdbw20.uk.experian.local'
-        case mmprod
-            set ssh_host 'ukfhpapdbw53.uk.experian.local'
         case smedev
             set ssh_host 'ukbldapdbw04.uk.experian.local'
         case smeuat
@@ -72,7 +65,7 @@ function bssh
 
     if test -z $ssh_host
         echo -e "Usage:\n  bssh <server>"
-        echo -e "<server> must be one of:\n  mmdev\n  mmstaging\n  mmprod\n  smedev\n  smestaging\n  smeprod"
+        echo -e "<server> must be one of:\n  smedev\n  smestaging\n  smeprod"
         return 1
     end
 
@@ -102,6 +95,8 @@ set -g __fish_git_prompt_char_stagedstate "+"
 set -g __fish_git_prompt_color_invalidstate yellow
 set -g fish_key_bindings fish_vi_key_bindings
 
+bind --mode insert \ce accept-autosuggestion
+
 # Emulates vim's cursor shape behavior
 # Set the normal and visual mode cursors to a block
 set fish_cursor_default block
@@ -122,7 +117,7 @@ set --universal nvm_default_version v22.6.0
 fish_add_path $HOME/.cargo/bin $HOME/bin
 
 . (rbenv init -|psub)
-export EDITOR=nvim
+export EDITOR=hx
 # export PYENV_ROOT="$HOME/.pyenv"
 # command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
