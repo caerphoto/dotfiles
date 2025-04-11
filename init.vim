@@ -1,0 +1,1 @@
+/Users/farrela/.config/nvim/init.vim
