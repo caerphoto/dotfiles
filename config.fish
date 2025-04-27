@@ -11,16 +11,16 @@ abbr --add bi bundle install
 abbr --add be bundle exec
 abbr --add nv nvim
 abbr --add et "et -s size -I"
-abbr --add lsd "exa -1d --all */"
+abbr --add lsd "eza -1d --all */"
 abbr --add tinybin "cargo +nightly build -Z build-std=std,panic_abort -Z build-std-features=panic_immediate_abort --target x86_64-apple-darwin --release"
 abbr --add y yazi
 
 function ls
-    command exa --all $argv
+    command eza --all $argv
 end
 
 function ll
-    command exa -lahg --git $argv
+    command eza -lahg --git $argv
 end
 
 # Git branch list
